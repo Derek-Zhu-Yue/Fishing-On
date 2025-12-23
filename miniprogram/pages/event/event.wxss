@@ -1,0 +1,3 @@
+.item { background:#fff;border-radius:12rpx;padding:16rpx;margin:12rpx 0; }
+.input { flex:1; background:#F9FAFB; border-radius:8rpx; padding:12rpx 16rpx; }
+.textarea { width:100%; min-height: 160rpx; background:#F9FAFB; border-radius:8rpx; padding:12rpx 16rpx; }

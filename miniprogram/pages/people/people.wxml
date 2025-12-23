@@ -1,0 +1,18 @@
+<view class="container">
+  <block wx:if="{{users.length===0}}">
+    <view class="empty">No people found yet. Create events to discover anglers.</view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{users}}" wx:key="id">
+      <view class="card">
+        <image wx:if="{{item.avatar}}" src="{{item.avatar}}" class="avatar" mode="aspectFill"/>
+        <view class="info">
+          <view class="name">{{item.name || 'Angler'}}</view>
+          <view class="sub">ID: {{item.id}}</view>
+        </view>
+        <button size="mini" class="followBtn" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.followable}}" bindtap="toggleFollow">{{item.following? 'Unfollow' : 'Follow'}}</button>
+        <view class="you" wx:else>You</view>
+      </view>
+    </block>
+  </block>
+</view>

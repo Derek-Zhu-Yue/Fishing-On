@@ -1,0 +1,18 @@
+page { background: #F5F7FA; color: #111827; }
+.container { padding: 24rpx; }
+.center { display: flex; align-items: center; justify-content: center; height: 60vh; }
+.fishon { width: 70%; height: 96rpx; font-size: 36rpx; border-radius: 12rpx; background: #0B3954; color: #fff; }
+.active { display: flex; flex-direction: column; align-items: center; gap: 24rpx; margin-top: 120rpx; }
+.timer { font-size: 56rpx; font-weight: 600; }
+.actions { display: flex; gap: 16rpx; }
+.landed { background: #10B981; color: #fff; }
+.lost { background: #EF4444; color: #fff; }
+.released { background: #3B82F6; color: #fff; }
+.list { padding: 24rpx; }
+.item { background: #fff; border-radius: 12rpx; padding: 24rpx; margin-bottom: 20rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.row { display: flex; justify-content: space-between; margin-bottom: 8rpx; }
+.status { font-weight: 600; }
+.duration { color: #6B7280; }
+.time { color: #6B7280; font-size: 24rpx; }
+.empty { text-align: center; color: #6B7280; margin-top: 200rpx; }
+.placeholder { text-align: center; margin-top: 200rpx; color: #6B7280; }

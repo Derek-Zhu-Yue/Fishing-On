@@ -1,0 +1,9 @@
+{
+  "name": "notifyFollowers",
+  "version": "1.0.0",
+  "description": "Cloud function to send subscription messages to followers when an event is created",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

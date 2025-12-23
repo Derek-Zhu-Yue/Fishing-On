@@ -1,0 +1,4 @@
+.item:last-child { margin-bottom: 80rpx; }
+.tabs { display:flex; background:#fff; border-bottom: 1rpx solid #E5E7EB; }
+.tab { flex:1; text-align:center; padding:20rpx 0; color:#6B7280; }
+.tab.active { color:#0B3954; font-weight:600; border-bottom: 6rpx solid #0B3954; }

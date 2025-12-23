@@ -1,0 +1,4 @@
+<view class="container">
+  <view class="placeholder">Grant profile access to continue.</view>
+  <button type="primary" bindtap="login">Get WeChat Profile</button>
+</view>

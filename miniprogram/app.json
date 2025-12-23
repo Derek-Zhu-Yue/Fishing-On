@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/capture/capture",
+    "pages/feed/feed",
+    "pages/map/map",
+    "pages/profile/profile",
+    "pages/login/login",
+    "pages/event/event",
+    "pages/people/people"
+  ],
+  "window": {
+    "navigationBarTitleText": "Fish On!",
+    "navigationBarBackgroundColor": "#0B3954",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA"
+  },
+  "tabBar": {
+    "color": "#6B7280",
+    "selectedColor": "#0B3954",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      { "pagePath": "pages/capture/capture", "text": "Capture" },
+      { "pagePath": "pages/feed/feed", "text": "Feed" },
+      { "pagePath": "pages/map/map", "text": "Map" },
+      { "pagePath": "pages/profile/profile", "text": "Profile" }
+    ]
+  },
+  "style": "v2",
+  "requiredPrivateInfos": ["getLocation"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "record your fish on this app"
+    }
+  }
+}

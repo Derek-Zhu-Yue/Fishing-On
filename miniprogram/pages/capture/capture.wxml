@@ -1,0 +1,37 @@
+<view class="container">
+  <block wx:if="{{!active}}">
+    <view class="center">
+      <button class="fishon" type="primary" bindtap="startEvent">🎣 Fish On!</button>
+    </view>
+    <view class="placeholder">One tap to start your fight.</view>
+  </block>
+
+  <block wx:elif="{{active}}">
+    <view class="active">
+      <text class="timer">{{elapsed}}</text>
+      <view class="row" style="gap:16rpx;align-items:center;">
+        <text>Visibility</text>
+        <picker mode="selector" range="{{visibilityOptions}}" value="{{visibilityIndex}}" bindchange="onVisibilityChange">
+          <view class="picker">{{visibilityOptions[visibilityIndex]}}</view>
+        </picker>
+      </view>
+      <view class="row" style="gap:16rpx;align-items:center;">
+        <text>Location</text>
+        <picker mode="selector" range="{{locationOptions}}" value="{{locationIndex}}" bindchange="onLocationChange">
+          <view class="picker">{{locationOptions[locationIndex]}}</view>
+        </picker>
+      </view>
+      <view class="actions">
+        <button size="mini" bindtap="addMedia">Add Photo/Video</button>
+      </view>
+      <view class="actions">
+        <button class="landed" size="default" data-outcome="Landed" bindtap="setOutcome">Landed ✅</button>
+        <button class="lost" size="default" data-outcome="Lost" bindtap="setOutcome">Lost ❌</button>
+        <button class="released" size="default" data-outcome="Released" bindtap="setOutcome">Released 🐟</button>
+      </view>
+      <view class="row">
+        <text>Location privacy: {{locationOptions[locationIndex]}}</text>
+      </view>
+    </view>
+  </block>
+</view>

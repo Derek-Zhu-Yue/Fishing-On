@@ -1,0 +1,75 @@
+<view class="container">
+  <block wx:if="{{!event}}">
+    <view class="empty">Event not found.</view>
+  </block>
+  <block wx:else>
+    <view class="item" style="display:flex;align-items:center;gap:16rpx;">
+      <image wx:if="{{event.user && event.user.avatar}}" src="{{event.user.avatar}}" style="width:80rpx;height:80rpx;border-radius:40rpx;"/>
+      <view style="flex:1;">
+        <view style="font-weight:600;">{{(event.user && event.user.name) || 'Angler'}}</view>
+        <view class="time">{{event.visibility || 'Public'}}</view>
+      </view>
+      <button wx:if="{{canFollow}}" size="mini" bindtap="toggleFollow">{{following ? 'Unfollow' : 'Follow'}}</button>
+    </view>
+    <view class="row" style="justify-content:space-between;">
+      <text class="status">{{event.status}}</text>
+      <text class="duration">{{durationText}}</text>
+    </view>
+    <view class="row">
+      <text class="time">{{timeText}}</text>
+      <text wx:if="{{event.location}}" class="time">📍 {{event.location.latitude}}, {{event.location.longitude}}</text>
+    </view>
+    <view class="row">
+      <text class="time">👁 {{event.visibility || 'Public'}}</text>
+      <text class="time">❤️ {{event.likeCount || 0}}</text>
+    </view>
+    <view wx:if="{{event.media && event.media.length}}" style="margin-top:12rpx;">
+      <block wx:for="{{event.media}}" wx:key="path">
+        <image wx:if="{{item.type==='image'}}" src="{{item.path}}" data-src="{{item.path}}" bindtap="previewImage" mode="aspectFill" style="width:100%;height:400rpx;border-radius:12rpx;margin-bottom:12rpx;"/>
+        <video wx:elif="{{item.type==='video'}}" src="{{item.path}}" controls style="width:100%;height:400rpx;border-radius:12rpx;margin-bottom:12rpx;"></video>
+      </block>
+    </view>
+
+    <view class="actions" style="margin-top:12rpx;">
+      <button size="mini" bindtap="toggleLike">{{event.liked ? 'Unlike' : 'Like'}} ❤️</button>
+      <button size="mini" open-type="share">Share 🔗</button>
+      <button size="mini" wx:if="{{event.location}}" bindtap="openLocation">Open Map 📍</button>
+      <button size="mini" bindtap="addMoreMedia">Add Media ➕</button>
+    </view>
+
+    <view style="margin-top:24rpx;">
+      <view class="item">
+        <view class="row" style="gap:16rpx;align-items:center;">
+          <text style="width:160rpx;color:#6B7280;">Species</text>
+          <input class="input" placeholder="e.g., Bass" value="{{species}}" data-field="species" bindinput="onFieldInput" />
+        </view>
+        <view class="row" style="gap:16rpx;align-items:center;margin-top:12rpx;">
+          <text style="width:160rpx;color:#6B7280;">Size</text>
+          <input class="input" placeholder="e.g., 55cm / 2.3kg" value="{{size}}" data-field="size" bindinput="onFieldInput" />
+        </view>
+        <view class="row" style="gap:16rpx;align-items:center;margin-top:12rpx;">
+          <text style="width:160rpx;color:#6B7280;">Method/Lure</text>
+          <input class="input" placeholder="e.g., Topwater / Jerkbait" value="{{method}}" data-field="method" bindinput="onFieldInput" />
+        </view>
+        <view style="margin-top:12rpx;">
+          <textarea class="textarea" placeholder="Notes (conditions, structure, etc.)" value="{{notes}}" data-field="notes" bindinput="onFieldInput" />
+        </view>
+        <view class="actions" style="margin-top:12rpx;">
+          <button size="mini" type="primary" bindtap="saveChanges">Save Changes 💾</button>
+          <button size="mini" type="warn" bindtap="deleteEvent">Delete Event 🗑️</button>
+        </view>
+      </view>
+
+      <input placeholder="Add a comment..." value="{{commentDraft}}" bindinput="onCommentInput" confirm-type="send" bindconfirm="addComment" />
+      <view wx:if="{{comments.length===0}}" class="empty">No comments yet.</view>
+      <block wx:for="{{comments}}" wx:key="id">
+        <view class="item">
+          <view class="row" style="justify-content:space-between;">
+            <text>{{item.text}}</text>
+            <text class="time">{{formatTime(item.createdAt)}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,27 @@
+<view class="container">
+  <block wx:if="{{user}}">
+    <view style="display:flex;align-items:center;gap:24rpx;">
+      <image src="{{user.avatarUrl}}" style="width:120rpx;height:120rpx;border-radius:60rpx;" mode="aspectFill"/>
+      <view>
+        <view style="font-size:32rpx;font-weight:600;">{{user.nickName}}</view>
+        <view style="color:#6B7280;">Events: {{eventCount}}</view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty">Sign in to personalize your experience.</view>
+    <button type="primary" bindtap="login">Get WeChat Profile</button>
+  </block>
+
+  <view style="margin-top:32rpx;">
+    <button bindtap="goCapture">Start a Fish On!</button>
+    <view style="height:16rpx;"></view>
+    <button bindtap="goPeople">Discover People</button>
+    <view style="height:16rpx;"></view>
+    <button type="default" bindtap="seedDemo">Seed Demo Data</button>
+    <view style="height:8rpx;"></view>
+    <button type="warn" bindtap="clearDemo">Clear Demo Data</button>
+    <view style="height:8rpx;"></view>
+    <button type="primary" bindtap="runSmokeTest">Run Smoke Test</button>
+  </view>
+</view>
